@@ -66,8 +66,8 @@ banner = r"""
    /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
   (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
 -----------------------------------------------------------------------------
-SMBMap - Samba Share Enumerator v1.10.5 | Shawn Evans - ShawnDEvans@gmail.com
-                     https://github.com/ShawnDEvans/smbmap
+CrypeAlbatros - Samba Share Enumerator v1.10.5 | Shawn Evans - byt3n33dl3@proton.me
+                     https://github.com/byt3n33dl3/CrypeAlbatros
 """
 
 
@@ -582,7 +582,7 @@ class RemoteShell(cmd.Cmd):
         self.__outputBuffer = ''
 
 
-class SMBMap():
+class CrypeAlbatros():
     KNOWN_PROTOCOLS = {
         '139/SMB': (r'ncacn_np:%s[\pipe\svcctl]', 139),
         '445/SMB': (r'ncacn_np:%s[\pipe\svcctl]', 445),
@@ -1283,9 +1283,9 @@ def check_smb_signing(signing_args):
 
 def main():
     example = 'Examples:\n\n'
-    example += '$ python smbmap.py -u jsmith -p password1 -d workgroup -H 192.168.0.1\n'
-    example += '$ python smbmap.py -u jsmith -p \'aad3b435b51404eeaad3b435b51404ee:da76f2c4c96028b7a6111aef4a50a94d\' -H 172.16.0.20\n'
-    example += '$ python smbmap.py -u \'apadmin\' -p \'asdf1234!\' -d ACME -Hh 10.1.3.30 -x \'net group "Domain Admins" /domain\'\n'
+    example += '$ python CrypeAlbatros.py -u jsmith -p password1 -d workgroup -H 192.168.0.1\n'
+    example += '$ python CrypeAlbatros.py -u jsmith -p \'aad3b435b51404eeaad3b435b51404ee:da76f2c4c96028b7a6111aef4a50a94d\' -H 172.16.0.20\n'
+    example += '$ python CrypeAlbatros.py -u \'apadmin\' -p \'asdf1234!\' -d ACME -Hh 10.1.3.30 -x \'net group "Domain Admins" /domain\'\n'
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=banner, epilog=example)
 
@@ -1353,7 +1353,7 @@ def main():
 
     hosts_auth = []
     host_list = []
-    mysmb = SMBMap()
+    mysmb = CrypeAlbatros()
 
     if not args.nobanner:
         print(banner)
