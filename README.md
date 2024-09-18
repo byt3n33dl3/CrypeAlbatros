@@ -4,12 +4,13 @@ CrypeAlbatros allows users to enumerate samba share drives across an entire doma
 
 Some of the features have not been thoroughly tested, so changes will be forth coming as bugs are found. I only really find and fix the bugs while I'm on engagements, so progress is a bit slow. Any feedback or bug reports would be appreciated. 
 
-> **Note**
-> CrypeAlbatros has been updated to Python3 & C
+# Note
+
+>- CrypeAlbatros has been updated to Python3 & C
 
 ## Installation
 
-```bash
+```python
 $ sudo pip3 install CrypeAlbatros
 $ cd CrypeAlbatros
 CrypeAlbatros
@@ -405,3 +406,12 @@ Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
 C:\Windows\system32>whoami
  nt authority\system
 ```
+
+# Thanks To
+>- ShawnDEvans
+
+>- SMBMap
+
+>- SQLMap
+
+>- GangstaCrew
